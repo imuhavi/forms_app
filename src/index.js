@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import ReactDOM  from "react-dom/client";
 
 const LoginForm =() =>{
+    //create email and password state variables and assign a null value to them
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    //variable to read the email value to update the email state value
     const handleEmail = (event) => {
         setEmail(event.target.value);
     }
 
+    //variable to read password value to update the password state value
     const handlePassword = (event) => {
         setPassword(event.target.value);
     }
@@ -43,6 +46,7 @@ const LoginForm =() =>{
         </form>
     );
 };
+//render Login component
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <LoginForm />
