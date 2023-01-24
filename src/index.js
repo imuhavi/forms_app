@@ -1,17 +1,49 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { useState } from "react";
+import ReactDOM  from "react-dom/client";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const LoginForm =() =>{
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleEmail = (event) => {
+        setEmail(event.target.value);
+    }
+
+    const handlePassword = (event) => {
+        setPassword(event.target.value);
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        alert(email + ' ' + password);
+    }
+
+    console.log(email + ' ' + password);
+    return (
+        <form onSubmit={handleSubmit}>
+            <div>
+                <label htmlFor="email">Email</label>
+                <input 
+                id="email" 
+                type="text"
+                value={email}
+                onChange={handleEmail}
+                />
+            </div>
+            <div>
+                <label htmlFor="password">Password</label>
+                <input 
+                id="password"
+                type="password"
+                value={password}
+                onChange={handlePassword} />
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    );
+};
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <LoginForm />
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
